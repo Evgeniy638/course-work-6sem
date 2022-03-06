@@ -5,3 +5,5 @@
 [Начало работы](.docs/start.md)
 
 [Разработка](.docs/development.md)
+
+[Docker](.docs/docker.md)
