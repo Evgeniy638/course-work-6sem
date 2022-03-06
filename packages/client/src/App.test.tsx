@@ -2,8 +2,12 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders messages from server and db', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const messageFromServer = screen.getByText('Сообщение от сервера по пути \'/api/ping\':');
+  const messageFromDb = screen.getByText('Посты из базы:');
+
+  expect(messageFromServer).toBeInTheDocument();
+  expect(messageFromDb).toBeInTheDocument();
 });
