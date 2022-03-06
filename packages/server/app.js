@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var pingRouter = require('./routes/ping');
+var postsRouter = require('./routes/posts');
 
 var app = express();
 var router = express.Router();
@@ -17,6 +18,7 @@ app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 
 var router = express.Router();
 router.use('/ping', pingRouter);
+router.use('/posts', postsRouter);
 
 app.use('/api', router);
 
