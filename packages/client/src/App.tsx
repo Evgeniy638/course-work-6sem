@@ -1,0 +1,34 @@
+import React, { useEffect, useState } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+const usePing = (): string | undefined => {
+    const [message, setMessage] = useState<string | undefined>();
+
+    useEffect(() => {
+        (async () => {
+            const responce = await fetch('/api/ping');
+            const pong = await responce.text();
+            setMessage(pong);
+        })();
+    }, []);
+
+    return message;
+}
+
+function App() {
+    const message = usePing();
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <p>
+                    Сообщение от сервера по пути '/api/ping': {message}
+                </p>
+            </header>
+        </div>
+    );
+}
+
+export default App;
