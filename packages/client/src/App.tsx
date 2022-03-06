@@ -43,7 +43,7 @@ function App() {
                     Сообщение от сервера по пути '/api/ping': {message}
                 </p>
 
-                <p>Посты из базы:{posts}</p>
+                <p>Посты из базы: {posts}</p>
             </header>
         </div>
     );

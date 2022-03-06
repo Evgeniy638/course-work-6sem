@@ -4,7 +4,8 @@
     "private": true,
     "scripts": {
         "docker": "docker build . -t course-work-6sem",
-        "start": "nodemon ./bin/www"
+        "start": "nodemon ./bin/www",
+        "test": "echo 0"
     },
     "dependencies": {
         "cookie-parser": "~1.4.4",

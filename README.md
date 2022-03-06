@@ -2,8 +2,10 @@
 Приложение отзывов
 
 ## Инструкции
-[Начало работы](.docs/start.md)
+1. [Начало работы](.docs/start.md)
 
-[Разработка](.docs/development.md)
+2. [Разработка](.docs/development.md)
 
-[Docker](.docs/docker.md)
+3. [Docker](.docs/docker.md)
+
+4. [Деплой](.docs/deploy.md)
