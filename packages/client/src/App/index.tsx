@@ -10,7 +10,7 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path={PAGE_LIST_THING} element={<ListThingPage />} />
-                <Route path='*' element={<Navigate to="/thing" replace />} />
+                <Route path='*' element={<Navigate to={PAGE_LIST_THING} replace />} />
             </Routes>
         </div>
     );

@@ -19,13 +19,23 @@ code {
 
 :root {
     --color-delimiter: rgb(213, 213, 213);
+    --color-action-icon: white;
 
     --background-color-header: rgb(255, 255, 255);
     --background-color-app: rgb(246, 246, 246);
     --background-color-primary: white;
+    --background-color-action-icon: #1976d2;
 
     --margin-bottom-list-things-item: 12px;
     --margin-bottom-search: 20px;
 
     --z-index-header: 9;
+
+    --right-speed-dial: 50px;
+
+    --bottom-speed-dial: 50px;
+
+    --width-speed-dial-icon: 50px;
+
+    --height-speed-dial-icon: 50px;
 }

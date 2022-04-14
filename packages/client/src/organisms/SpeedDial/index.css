@@ -1,0 +1,20 @@
+.SpeedDial {
+    position: fixed;
+    bottom: var(--bottom-speed-dial);
+    right: var(--right-speed-dial);
+}
+
+.SpeedDial__icon.MuiPaper-root {
+    border-radius: 50%;
+    line-height: 0;
+    width: var(--width-speed-dial-icon);
+    height: var(--height-speed-dial-icon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color-action-icon);
+}
+
+.SpeedDial__icon .MuiSvgIcon-root {
+    fill: var(--color-action-icon);
+}

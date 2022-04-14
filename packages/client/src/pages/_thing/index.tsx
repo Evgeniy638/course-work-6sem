@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import SpeedDial from '../../organisms/SpeedDial';
 
 import ListThings from '../../organisms/ListThings';
 import SearchThings from '../../organisms/SearchThings';
@@ -13,6 +14,7 @@ const ListThingPage: FC = () => {
                 <SearchThings />
             </div>
             <ListThings />
+            <SpeedDial />
         </Page>
     );
 }
