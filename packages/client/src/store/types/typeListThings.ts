@@ -1,4 +1,5 @@
 export interface Thing {
+    id: string;
     title: string;
     description?: string;
     avatarSrc?: string;

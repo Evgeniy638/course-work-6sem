@@ -1,0 +1,45 @@
+.ItemListThing__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+}
+
+.ItemListThing__description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    margin-bottom: 8px;
+}
+
+.ItemListThing__img {
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin: 0 12px 10px 0;
+}
+
+@media screen and (max-width: 500px) {
+    .ItemListThing__title {
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    .ItemListThing__imgWrap {
+        display: flex;
+        justify-content: center;
+    }
+
+    .ItemListThing__img {
+        width: 90px;
+        height: 90px;
+        margin: 0  0 12px 0;
+        float: none;
+    }
+}

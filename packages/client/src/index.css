@@ -8,6 +8,10 @@ body {
     color: rgb(86, 86, 86);
 }
 
+* {
+    margin: 0;
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
@@ -19,4 +23,9 @@ code {
     --background-color-header: rgb(255, 255, 255);
     --background-color-app: rgb(246, 246, 246);
     --background-color-primary: white;
+
+    --margin-bottom-list-things-item: 12px;
+    --margin-bottom-search: 20px;
+
+    --z-index-header: 9;
 }
