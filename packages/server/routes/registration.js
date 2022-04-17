@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const { findByLogin, createNewUser } = require('../db/query/user');
 const { body } = require('express-validator');
 
-const SALT = 8;
+const SALT = 5;
 
 /* POST registration */
 router.post('/', 
