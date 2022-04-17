@@ -20,13 +20,13 @@ router.post('/', async function (req, res, next) {
         const userFromDb = await findByLogin(login);
 
         if (!userFromDb) {
-            res.status(400).json(notCorrectLoginOrPassword);
+            return res.status(400).json(notCorrectLoginOrPassword);
         }
 
         const isValidPassword = await bcrypt.compare(password, userFromDb.password);
 
         if (!isValidPassword) {
-            res.status(400).json(notCorrectLoginOrPassword);
+            return res.status(400).json(notCorrectLoginOrPassword);
         }
 
         const token = jsonwebtoken.sign(

@@ -21,7 +21,7 @@ router.post('/',
             const isBusyLogin = !!(await findByLogin(login));
 
             if (isBusyLogin) {
-                res.status(400).json({
+                return res.status(400).json({
                     messageStatus: 'USER_ALREADY_EXIST',
                 });
             }
