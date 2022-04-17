@@ -28,9 +28,11 @@ const ItemListThing: FC<ItemListThingProps> = ({
             <CardContent>
                 <div className="ItemListThing">
                     <p className="ItemListThing__description">
-                        <div className="ItemListThing__imgWrap">
-                            <img className="ItemListThing__img" alt={title} src={avatarSrc} />
-                        </div>
+                        {avatarSrc && (
+                            <div className="ItemListThing__imgWrap">
+                                <img className="ItemListThing__img" alt={title} src={avatarSrc} />
+                            </div>
+                        )}
                         <Link to={createLinkToThingPage(id)}>
                             <Typography
                                 variant="h6"

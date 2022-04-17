@@ -1,7 +1,7 @@
 export interface Thing {
     id: string;
     title: string;
-    description?: string;
+    description: string;
     avatarSrc?: string;
     rating?: number;
 }
