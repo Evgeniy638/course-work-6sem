@@ -3,7 +3,7 @@ const express = require('express');
 const jsonwebtoken = require('jsonwebtoken');
 const router = express.Router();
 
-const { findByLogin } = require('../db/query/user');
+const { findUserByLogin } = require('../db/query/user');
 
 const notCorrectLoginOrPassword = {
     message: `Not correct login or password`,
@@ -17,7 +17,7 @@ router.post('/', async function (req, res, next) {
     try {
         const { login, password } = req.body;
 
-        const userFromDb = await findByLogin(login);
+        const userFromDb = await findUserByLogin(login);
 
         if (!userFromDb) {
             return res.status(400).json(notCorrectLoginOrPassword);

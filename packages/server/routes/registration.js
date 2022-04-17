@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 
-const { findByLogin, createNewUser } = require('../db/query/user');
+const { findUserByLogin, createNewUser } = require('../db/query/user');
 const { body } = require('express-validator');
 
 const SALT = 5;
@@ -18,7 +18,7 @@ router.post('/',
         try {
             const { login, password, fullName, avatarSrc } = req.body;
 
-            const isBusyLogin = !!(await findByLogin(login));
+            const isBusyLogin = !!(await findUserByLogin(login));
 
             if (isBusyLogin) {
                 return res.status(400).json({

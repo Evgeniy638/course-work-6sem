@@ -9,11 +9,15 @@ import './index.css';
 import LogoutPage from '../pages/_logout';
 import RegistrationPage from '../pages/_registration';
 import { selectors, useTypedSelector } from '../store';
+import { useIsAuth } from '../common/useIsAuth';
 import { useAuth } from '../common/useAuth';
 
 function App() {
     const user = useTypedSelector(selectors.selectUser);
-    const isAuth = useAuth();
+    const isAuth = useIsAuth();
+
+    // получаем данные пользователя по токену из localStorage
+    useAuth();
 
     console.log('App', isAuth, user);
 

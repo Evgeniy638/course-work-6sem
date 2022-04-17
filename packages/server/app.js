@@ -7,6 +7,8 @@ var logger = require('morgan');
 const pingRouter = require('./routes/ping');
 const registrationRouter = require('./routes/registration');
 const loginRouter = require('./routes/login');
+const authRouter = require('./routes/auth');
+const authMiddleware = require('./middlewares/auth.middlewwre');
 
 var app = express();
 var router = express.Router();
@@ -21,6 +23,7 @@ var router = express.Router();
 router.use('/ping', pingRouter);
 router.use('/registration', registrationRouter);
 router.use('/login', loginRouter);
+router.use('/auth', authMiddleware, authRouter);
 
 app.use('/api', router);
 

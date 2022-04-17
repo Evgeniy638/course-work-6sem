@@ -20,7 +20,11 @@ const Page: FC<PageProps> = ({
 
     return (
         <Stack spacing={2}>
-            <Header title={title} usesrname={user?.login}/>
+            <Header
+                title={title}
+                usesrname={user?.login}
+                avatarSrc={user?.avatarSrc}
+            />
             <main className='main'>
                 <Container maxWidth={maxWidth}>
                     {children}

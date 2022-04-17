@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { PAGE_LOGIN } from '../../common/paths';
 import { useActions } from '../../store';

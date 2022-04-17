@@ -1,7 +1,11 @@
 const User = require('../models/User');
 
-async function findByLogin(login) {
+async function findUserByLogin(login) {
     return User.findOne({ login }).exec();
+}
+
+async function findUserById(id) {
+    return User.findById(id).exec();
 }
 
 /**
@@ -18,6 +22,7 @@ async function createNewUser(userObj) {
 }
 
 module.exports = {
-    findByLogin,
+    findUserByLogin,
     createNewUser,
+    findUserById,
 };
