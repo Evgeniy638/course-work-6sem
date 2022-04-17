@@ -11,7 +11,7 @@ const LogoutPage: FC = () => {
         logout();
         navigate(PAGE_LOGIN, {
             replace: true,
-        })
+        });
     }, [logout, navigate]);
 
     return null;

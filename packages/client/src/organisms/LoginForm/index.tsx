@@ -4,8 +4,8 @@ import React, { FC, useCallback, useState } from 'react';
 
 import { initialValues, LoginSchema, validationSchema } from './schema';
 import style from './index.module.css';
-import { Link } from 'react-router-dom';
-import { PAGE_REGISTRATION } from '../../common/paths';
+import { Link, useNavigate } from 'react-router-dom';
+import { PAGE_LIST_THING, PAGE_REGISTRATION } from '../../common/paths';
 import { useDispatch } from 'react-redux';
 import { thunkCreators } from '../../store';
 import { messageStatuses } from '../../common/messageStatuses';
@@ -13,6 +13,11 @@ import { messageStatuses } from '../../common/messageStatuses';
 const LoginForm: FC = () => {
     const dispatch = useDispatch();
     const [errorLogin, setErrorLogin] = useState<boolean>(false);
+    const navigate = useNavigate();
+
+    const handleSuccess = useCallback(() => {
+        navigate(PAGE_LIST_THING);
+    }, [navigate])
 
     const onSubmit = useCallback((values: LoginSchema, formikHelpers: FormikHelpers<LoginSchema>) => {
         const handleError = (messageStatus: string) => {
@@ -30,8 +35,8 @@ const LoginForm: FC = () => {
             }
         };
 
-        dispatch(thunkCreators.login(values, handleError));
-    }, [dispatch]);
+        dispatch(thunkCreators.login(values, handleSuccess, handleError));
+    }, [dispatch, handleSuccess]);
 
     const formik = useFormik({
         initialValues,

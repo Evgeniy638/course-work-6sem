@@ -26,7 +26,7 @@ router.post('/',
                 });
             }
 
-            const hashPassword = bcrypt.hash(password, SALT);
+            const hashPassword = await bcrypt.hash(password, SALT);
 
             await createNewUser({
                 login,

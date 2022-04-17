@@ -6,6 +6,7 @@ import { get } from 'lodash';
 
 export const login = (
     args: LoginArgs,
+    handleSucess: () => void,
     handleError: (messageStatus: string) => void,
 ) => 
     async (dispatch: Dispatch<ActionUser>) => {
@@ -13,6 +14,8 @@ export const login = (
             const result = await postLogin(args);
 
             dispatch(actionsCreators.login(result.user, result.token));
+
+            handleSucess();
         } catch (error) {
             const status = get(error, 'messageStatus');
 
