@@ -19,8 +19,6 @@ function App() {
     // получаем данные пользователя по токену из localStorage
     useAuth();
 
-    console.log('App', isAuth, user);
-
     return (
         <div className="App">
             <Routes>

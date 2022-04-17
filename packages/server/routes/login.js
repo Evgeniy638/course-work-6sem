@@ -32,7 +32,6 @@ router.post('/', async function (req, res, next) {
         const token = jsonwebtoken.sign(
             { id: userFromDb.id },
             secretKey,
-            { expiresIn: "2d" },
         );
 
         return res.json({

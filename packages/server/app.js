@@ -8,6 +8,8 @@ const pingRouter = require('./routes/ping');
 const registrationRouter = require('./routes/registration');
 const loginRouter = require('./routes/login');
 const authRouter = require('./routes/auth');
+const thingRouter = require('./routes/thing');
+
 const authMiddleware = require('./middlewares/auth.middlewwre');
 
 var app = express();
@@ -24,6 +26,7 @@ router.use('/ping', pingRouter);
 router.use('/registration', registrationRouter);
 router.use('/login', loginRouter);
 router.use('/auth', authMiddleware, authRouter);
+router.use('/things', authMiddleware, thingRouter);
 
 app.use('/api', router);
 

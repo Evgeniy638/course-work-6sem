@@ -7,7 +7,6 @@ export const getAuthorization = () => {
 }
 
 export const getToken = (): string | undefined => {
-    console.log('getToken');
     return localStorage.getItem(TOKEN_KEY_LOCAL_STORAGE) || undefined;
 };
 
@@ -16,6 +15,5 @@ export const setToken = (newToken: string) => {
 }
 
 export const removeToken = () => {
-    console.log('removeToken');
     localStorage.removeItem(TOKEN_KEY_LOCAL_STORAGE);
 }

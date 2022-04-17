@@ -5,8 +5,6 @@ import style from './index.module.css';
 import LoginForm from '../../organisms/LoginForm';
 
 const LoginPage: FC = () => {
-    console.log('LoginPage');
-
     return (
         <Paper className={style.LoginPage}>
             <Typography variant='h5' component='h1' gutterBottom>
