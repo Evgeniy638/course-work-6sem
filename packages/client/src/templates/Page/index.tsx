@@ -1,7 +1,8 @@
 import { Breakpoint, Container, Stack } from '@mui/material';
 import React, { FC } from 'react';
 import { APP_TITLE } from '../../common/constants';
-import Header from '../../molecules/Header';
+import Header from '../../organisms/Header';
+import { selectors, useTypedSelector } from '../../store';
 
 import './index.css';
 
@@ -15,9 +16,15 @@ const Page: FC<PageProps> = ({
     title = APP_TITLE,
     maxWidth="sm"
 }) => {
+    const user = useTypedSelector(selectors.selectUser);
+
     return (
         <Stack spacing={2}>
-            <Header title={title} usesrname='H'/>
+            <Header
+                title={title}
+                usesrname={user?.login}
+                avatarSrc={user?.avatarSrc}
+            />
             <main className='main'>
                 <Container maxWidth={maxWidth}>
                     {children}

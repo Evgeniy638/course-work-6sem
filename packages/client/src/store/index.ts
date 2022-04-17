@@ -1,12 +1,13 @@
 import { RootState } from './reducers/index';
-import {bindActionCreators, createStore, Store} from 'redux';
+import {applyMiddleware, bindActionCreators, createStore, Store} from 'redux';
 import { rootReducer } from './reducers';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { useMemo } from 'react';
 import actionsCreators from './actions-creators';
+import thunk from 'redux-thunk';
 
 // create a makeStore function
-export const store: Store<RootState> = createStore(rootReducer);
+export const store: Store<RootState> = createStore(rootReducer, applyMiddleware(thunk));
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export { type RootState };
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
@@ -20,3 +21,4 @@ export const useActions = () => {
 }
 
 export { selectors } from './selectors';
+export { thunkCreators } from './thunk-creators';

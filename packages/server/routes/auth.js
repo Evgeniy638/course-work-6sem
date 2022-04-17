@@ -1,13 +1,11 @@
 const express = require('express');
+const { findUserById } = require('../db/query/user');
 const router = express.Router();
 
-const postsQuery = require('../db/query/post');
-
-/* GET posts */
+/* GET users listing. */
 router.get('/', async function (req, res, next) {
-    const posts = await postsQuery.findAll();
-
-    res.send(posts);
+    const user = await findUserById(req.user.id);
+    res.send(user);
 });
 
 module.exports = router;

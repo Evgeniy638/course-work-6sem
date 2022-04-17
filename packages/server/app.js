@@ -4,21 +4,26 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var pingRouter = require('./routes/ping');
-var postsRouter = require('./routes/posts');
+const pingRouter = require('./routes/ping');
+const registrationRouter = require('./routes/registration');
+const loginRouter = require('./routes/login');
+const authRouter = require('./routes/auth');
+const authMiddleware = require('./middlewares/auth.middlewwre');
 
 var app = express();
 var router = express.Router();
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({ limit: '50mb', extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 
 var router = express.Router();
 router.use('/ping', pingRouter);
-router.use('/posts', postsRouter);
+router.use('/registration', registrationRouter);
+router.use('/login', loginRouter);
+router.use('/auth', authMiddleware, authRouter);
 
 app.use('/api', router);
 
@@ -27,19 +32,18 @@ app.get('/**', function (req, res) {
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use(function (req, res, next) {
+    next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(function (err, req, res, next) {
+    const isDevelopment = req.app.get('env') === 'development';
+    const message = isDevelopment ? err.message : 'Server';
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    console.log(message);
+
+    res.status(err.status || 500).send(message);
 });
 
 module.exports = app;
