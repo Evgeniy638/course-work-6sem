@@ -1,7 +1,7 @@
 import { Breakpoint, Container, Stack } from '@mui/material';
 import React, { FC } from 'react';
 import { APP_TITLE } from '../../common/constants';
-import Header from '../../molecules/Header';
+import Header from '../../organisms/Header';
 import { selectors, useTypedSelector } from '../../store';
 
 import './index.css';

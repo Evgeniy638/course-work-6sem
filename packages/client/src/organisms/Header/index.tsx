@@ -1,5 +1,6 @@
 import { Avatar, Typography } from '@mui/material';
 import React, { FC } from 'react';
+import AvatarMenu from '../AvatarMenu';
 
 import './index.css';
 
@@ -24,17 +25,19 @@ const Header: FC<HeaderProps> = ({
                 {title}
             </Typography>
 
-            <div className="Header__avatarWrap">
-                {usesrname && (
-                    <span className="Header__usesrname">
-                        {usesrname}
-                    </span>
-                )}
-                <Avatar
-                    alt={`avatar ${usesrname}`}
-                    src={avatarSrc}
-                />
-            </div>
+            <AvatarMenu>
+                <div className="Header__avatarWrap">
+                    {usesrname && (
+                        <span className="Header__usesrname">
+                            {usesrname}
+                        </span>
+                    )}
+                    <Avatar
+                        alt={`avatar ${usesrname}`}
+                        src={avatarSrc}
+                    />
+                </div>
+            </AvatarMenu>
         </header>
     );
 }

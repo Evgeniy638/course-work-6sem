@@ -17,6 +17,11 @@ code {
         monospace;
 }
 
+.LinkWithoutStyle {
+    text-decoration: none;
+    color: inherit;
+}
+
 :root {
     --color-delimiter: rgb(213, 213, 213);
     --color-action-icon: white;

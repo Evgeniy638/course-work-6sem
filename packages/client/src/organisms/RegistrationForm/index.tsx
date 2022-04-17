@@ -22,6 +22,7 @@ const RegistrationForm: FC = () => {
     }, [navigate]);
 
     const onSubmit = useCallback(async (values: RegistrationSchema, formikHelpers: FormikHelpers<RegistrationSchema>) => {
+        formikHelpers.setSubmitting(true);
         const handleError = (messageStatus: string) => {
             formikHelpers.setSubmitting(false);
 
