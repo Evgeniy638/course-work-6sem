@@ -1,0 +1,3 @@
+.ListThings__item {
+    margin-bottom: var(--margin-bottom-list-things-item);
+}

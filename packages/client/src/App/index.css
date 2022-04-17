@@ -1,0 +1,4 @@
+.App {
+    background-color: var(--background-color-app);
+    min-height: 100vh;
+}
