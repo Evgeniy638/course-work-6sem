@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { createSearchParams } from 'react-router-dom';
 import { useDebounce } from 'react-use';
+import { parametrs } from '../../common/paths';
 import { useUrlSearchParams } from '../../hooks/useUrlSearchParams';
 import SearchInput from '../../molecules/SearchInput';
 import { selectors, useActions } from '../../store';
 
 let isFirst = true;
 
-const SEARCH_QUERY_PARAMETR = 'search';
-
-const SearchThings = () => {
+const SearchThings: FC = () => {
     const loading = useSelector(selectors.selectThingsLoading);
     const suggest = useSelector(selectors.selectThingsSuggest);
 
@@ -21,7 +20,7 @@ const SearchThings = () => {
     const params = useUrlSearchParams();
     const navigate = useNavigate();
 
-    const [inputValue, setInputValue] = useState<string>(params.get(SEARCH_QUERY_PARAMETR) || '');
+    const [inputValue, setInputValue] = useState<string>(params.get(parametrs.SEARCH_QUERY_PARAMETR) || '');
 
     useDebounce(
         () => {
@@ -42,7 +41,7 @@ const SearchThings = () => {
 
     const handleChange = useCallback((value: string) => {
         const search = createSearchParams({
-            [SEARCH_QUERY_PARAMETR]: value || '',
+            [parametrs.SEARCH_QUERY_PARAMETR]: value || '',
         }).toString();
 
         navigate({ search });

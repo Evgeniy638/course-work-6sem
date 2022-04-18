@@ -7,6 +7,19 @@ export const changeThings = (things: Thing[]): ActionListThings => {
     };
 }
 
+export const changeCurrentThing = (thing: Thing): ActionListThings => {
+    return {
+        type: ListThingsTypeActions.CHANGE_CURRENT_THING,
+        thing,
+    };
+}
+
+export const removeCurrentThing = (): ActionListThings => {
+    return {
+        type: ListThingsTypeActions.REMOVE_CURRENT_THING,
+    };
+}
+
 export const changeLoadingThings = (loading: boolean): ActionListThings => {
     return { type: ListThingsTypeActions.CHANGE_LOADING, loading };
 }

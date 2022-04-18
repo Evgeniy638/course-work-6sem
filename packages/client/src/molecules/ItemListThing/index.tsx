@@ -11,7 +11,7 @@ interface ItemListThingProps {
     title: string;
     description?: string;
     avatarSrc?: string;
-    rating?: number;
+    raiting?: number;
     className?: string;
 }
 
@@ -20,7 +20,7 @@ const ItemListThing: FC<ItemListThingProps> = ({
     title,
     description,
     avatarSrc,
-    rating,
+    raiting,
     className
 }) => {
     return (
@@ -28,9 +28,11 @@ const ItemListThing: FC<ItemListThingProps> = ({
             <CardContent>
                 <div className="ItemListThing">
                     <p className="ItemListThing__description">
-                        <div className="ItemListThing__imgWrap">
-                            <img className="ItemListThing__img" alt={title} src={avatarSrc} />
-                        </div>
+                        {avatarSrc && (
+                            <div className="ItemListThing__imgWrap">
+                                <img className="ItemListThing__img" alt={title} src={avatarSrc} />
+                            </div>
+                        )}
                         <Link to={createLinkToThingPage(id)}>
                             <Typography
                                 variant="h6"
@@ -43,8 +45,8 @@ const ItemListThing: FC<ItemListThingProps> = ({
                         </Link>
                         {description}
                     </p>
-                    {rating && (
-                        <Rating precision={0.5} value={rating} readOnly />
+                    {raiting && (
+                        <Rating precision={0.5} value={raiting} readOnly />
                     )}
                 </div>
             </CardContent>

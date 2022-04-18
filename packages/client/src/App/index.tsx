@@ -2,24 +2,22 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router';
 
 import ListThingPage from '../pages/_thing';
-import { PAGE_LIST_THING, PAGE_LOGIN, PAGE_LOGOUT, PAGE_REGISTRATION } from '../common/paths';
+import { PAGE_CREATE_THING, PAGE_LIST_THING, PAGE_LOGIN, PAGE_LOGOUT, PAGE_REGISTRATION, PAGE_THING } from '../common/paths';
 import LoginPage from '../pages/_login';
 
 import './index.css';
 import LogoutPage from '../pages/_logout';
 import RegistrationPage from '../pages/_registration';
-import { selectors, useTypedSelector } from '../store';
 import { useIsAuth } from '../common/useIsAuth';
 import { useAuth } from '../common/useAuth';
+import ThingPage from '../pages/_thing/@Id';
+import ThingCreatePage from '../pages/_thing/_create';
 
 function App() {
-    const user = useTypedSelector(selectors.selectUser);
     const isAuth = useIsAuth();
 
     // получаем данные пользователя по токену из localStorage
     useAuth();
-
-    console.log('App', isAuth, user);
 
     return (
         <div className="App">
@@ -28,7 +26,9 @@ function App() {
                 <Route path={PAGE_LOGIN} element={<LoginPage />} />
                 <Route path={PAGE_REGISTRATION} element={<RegistrationPage />} />
 
+                <Route path={PAGE_CREATE_THING} element={<ThingCreatePage />} />
                 <Route path={PAGE_LIST_THING} element={<ListThingPage />} />
+                <Route path={PAGE_THING} element={<ThingPage />} />
 
                 {!isAuth && (
                     /* Если нет токена редиректим на страницу логина */
