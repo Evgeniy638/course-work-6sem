@@ -11,7 +11,7 @@ interface ItemListThingProps {
     title: string;
     description?: string;
     avatarSrc?: string;
-    rating?: number;
+    raiting?: number;
     className?: string;
 }
 
@@ -20,7 +20,7 @@ const ItemListThing: FC<ItemListThingProps> = ({
     title,
     description,
     avatarSrc,
-    rating,
+    raiting,
     className
 }) => {
     return (
@@ -45,8 +45,8 @@ const ItemListThing: FC<ItemListThingProps> = ({
                         </Link>
                         {description}
                     </p>
-                    {rating && (
-                        <Rating precision={0.5} value={rating} readOnly />
+                    {raiting && (
+                        <Rating precision={0.5} value={raiting} readOnly />
                     )}
                 </div>
             </CardContent>

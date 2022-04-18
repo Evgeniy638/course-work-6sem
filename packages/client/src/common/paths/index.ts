@@ -1,4 +1,5 @@
 export const PAGE_LIST_THING = '/things';
+export const PAGE_THING = '/things/:thingId';
 export const PAGE_CREATE_THING = '/things/create';
 export const PAGE_LOGIN = '/login';
 export const PAGE_LOGOUT = '/logout';

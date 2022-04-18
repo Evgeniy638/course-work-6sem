@@ -37,6 +37,7 @@ router.post('/', async function (req, res, next) {
         return res.json({
             token,
             user: {
+                id: userFromDb.id,
                 login: userFromDb.login,
                 fullName: userFromDb.fullName,
                 avatarSrc: userFromDb.avatarSrc,

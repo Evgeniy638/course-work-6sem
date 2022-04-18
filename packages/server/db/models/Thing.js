@@ -4,7 +4,7 @@ const thingSchema = new mongoose.Schema({
     title: { type: String, required: true, unique: true },
     description: { type: String, required: true },
     avatarSrc: { type: String },
-    rating: { type: Number },
+    raiting: { type: Number },
     creatorId: { type: String, required: true },
     createTime: { type: Date, required: true, default: Date.now },
 }, {versionKey: false});

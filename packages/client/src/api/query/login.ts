@@ -8,6 +8,7 @@ export interface LoginArgs {
 interface LoginResult {
     token: string;
     user: {
+        id: string;
         login: string;
         fullName: string;
         avatarSrc?: string;

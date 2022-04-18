@@ -1,5 +1,7 @@
 import { Avatar, Typography } from '@mui/material';
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
+import { PAGE_LIST_THING } from '../../common/paths';
 import AvatarMenu from '../AvatarMenu';
 
 import './index.css';
@@ -17,13 +19,15 @@ const Header: FC<HeaderProps> = ({
 }) => {
     return (
         <header className="Header">
-            <Typography
-                variant="h4"
-                component="h1"
-                className="Header__title"
-            >
-                {title}
-            </Typography>
+            <Link to={PAGE_LIST_THING} className="LinkWithoutStyle">
+                <Typography
+                    variant="h4"
+                    component="h1"
+                    className="Header__title"
+                >
+                    {title}
+                </Typography>
+            </Link>
 
             <AvatarMenu>
                 <div className="Header__avatarWrap">

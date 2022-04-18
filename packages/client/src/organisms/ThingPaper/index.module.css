@@ -1,0 +1,13 @@
+.ThingPaper {
+    padding: 12px 20px;
+}
+
+.Raiting {
+    display: flex;
+    align-items: center;
+}
+
+.deleteButtonWrap {
+    display: flex;
+    justify-content: flex-end;
+}

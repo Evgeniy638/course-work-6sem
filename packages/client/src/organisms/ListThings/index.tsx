@@ -21,14 +21,14 @@ const ListThings: FC = () => {
 
     return (
         <div>
-            {things.map(({ id, title, description, avatarSrc, rating }) => (
+            {things.map(({ id, title, description, avatarSrc, raiting }) => (
                 <ItemListThing
                     key={id}
                     id={id}
                     title={title}
                     description={description}
                     avatarSrc={avatarSrc}
-                    rating={rating}
+                    raiting={raiting}
                     className={"ListThings__item"}
                 />
             ))}

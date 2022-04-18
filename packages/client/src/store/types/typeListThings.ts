@@ -3,24 +3,37 @@ export interface Thing {
     title: string;
     description: string;
     avatarSrc?: string;
-    rating?: number;
+    raiting?: number;
+    creatorId: string;
 }
 
 export interface StateListThings {
     loading: boolean;
     suggest: string[];
     things: Thing[];
+    currentThing?: Thing;
 }
 
 export enum ListThingsTypeActions {
     CHANGE_THINGS = "CHANGE_THINGS",
     CHANGE_LOADING = "CHANGE_LOADING",
     CHANGE_SUGGEST = "CHANGE_SUGGEST",
+    CHANGE_CURRENT_THING = "CHANGE_CURRENT_THING",
+    REMOVE_CURRENT_THING = "REMOVE_CURRENT_THING",
 }
 
 interface ChangeThings {
     type: ListThingsTypeActions.CHANGE_THINGS;
     things: Thing[];
+}
+
+interface ChangeCurrentThing {
+    type: ListThingsTypeActions.CHANGE_CURRENT_THING;
+    thing: Thing;
+}
+
+interface RemoveCurrentThing {
+    type: ListThingsTypeActions.REMOVE_CURRENT_THING;
 }
 
 interface ChangeSuggest {
@@ -35,4 +48,6 @@ interface ChangeLoading {
 
 export type ActionListThings = ChangeThings |
     ChangeLoading |
-    ChangeSuggest;
+    ChangeSuggest |
+    ChangeCurrentThing |
+    RemoveCurrentThing;

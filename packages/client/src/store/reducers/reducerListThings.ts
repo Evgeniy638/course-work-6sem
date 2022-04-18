@@ -1,19 +1,9 @@
-import { ActionListThings, ListThingsTypeActions, StateListThings, Thing } from './../types/typeListThings';
-
-import macbook from './macbook.jpg';
-
-const things = Object.keys([...new Array(20)]).map((id): Thing => ({
-    id,
-    title: `Вещь ${id}`.repeat(10),
-    description: 'Балабоба временно не работает'.repeat(10),
-    avatarSrc: macbook,
-    rating: 3.5,
-}));
+import { ActionListThings, ListThingsTypeActions, StateListThings } from './../types/typeListThings';
 
 const initialState: StateListThings = {
     loading: false,
     suggest: ['ааавтор', 'аааа'],
-    things,
+    things: [],
 };
 
 export const reducerListThings = (
@@ -21,6 +11,18 @@ export const reducerListThings = (
     action: ActionListThings
 ): StateListThings => {
     switch (action.type) {
+        case ListThingsTypeActions.CHANGE_CURRENT_THING:
+            return {
+                ...state,
+                currentThing: action.thing,
+            };
+        
+        case ListThingsTypeActions.REMOVE_CURRENT_THING:
+                return {
+                    ...state,
+                    currentThing: undefined,
+                };
+
         case ListThingsTypeActions.CHANGE_THINGS:
             return {
                 ...state,
