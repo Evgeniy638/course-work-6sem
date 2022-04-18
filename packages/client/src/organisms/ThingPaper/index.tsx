@@ -36,19 +36,16 @@ const ThingPaper: FC<ThingPaperProps> = ({ className }) => {
     return (
         <Paper className={classNames(style.ThingPaper, className)}>
             {avatarSrc && (
-                <div className="ItemListThing__imgWrap">
-                    <img className="ItemListThing__img" alt={title} src={avatarSrc} />
-                </div>
+                <img className={style.img} alt={title} src={avatarSrc} />
             )}
             <Typography
                 variant="h6"
                 gutterBottom
                 component="h3"
-                className="ItemListThing__title"
             >
                 {title}
             </Typography>
-            <p className="ItemListThing__description">
+            <p className={style.description}>
                 {description}
             </p>
             <div className={style.Raiting}>

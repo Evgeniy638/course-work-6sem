@@ -45,3 +45,25 @@ export const deleteThingById = async (thingId: string): Promise<Thing> => {
 
     return result;
 }
+
+export interface PostCreateThingArgs {
+    title: string;
+    description: string;
+    avatarSrc?: string;
+}
+
+export const postCreateThing = async (newThing: PostCreateThingArgs): Promise<Thing> => {
+    const response = await fetch(`/api/things`, {
+        method: 'POST',
+        headers: getHeaders(true),
+        body: JSON.stringify(newThing),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+        throw result;
+    }
+
+    return result;
+}

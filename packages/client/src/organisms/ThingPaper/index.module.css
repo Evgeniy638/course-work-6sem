@@ -11,3 +11,12 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.description {
+    margin-bottom: 8px;
+}
+
+.img {
+    width: 100%;
+    margin: 0  0 12px 0;
+}
