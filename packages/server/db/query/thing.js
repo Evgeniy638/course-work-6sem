@@ -47,7 +47,7 @@ async function updateThing(thingObj) {
 }
 
 async function removeThingById(id) {
-    return Thing.remove({ _id: id }).exec();
+    return Thing.deleteOne({ _id: id }).exec();
 }
 
 module.exports = {

@@ -50,7 +50,7 @@ router.put('/', async function (req, res, next) {
         });
     }
 
-    await updateThing({ ...req.body, creatorId: req.user.id });
+    await updateThing(req.body);
     res.json({ message: 'ok' });
 });
 
