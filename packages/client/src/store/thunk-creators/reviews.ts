@@ -1,4 +1,4 @@
-import { changeReviews, deleteReview, addReview, updateReviewAvatarSrc } from './../actions-creators/review';
+import { changeReviews, deleteReview, addReview, updateReviewAvatarSrc, deleteReviewByModerator } from './../actions-creators/review';
 import { deleteReviewById, fetchReviews, PostCreateReviewArgs, postCreateReview } from './../../api/query/review';
 import { Dispatch } from "redux";
 import pMap from 'p-map';
@@ -32,6 +32,12 @@ export const removeReviewById = (reviewId: string) =>
     async (dispatch: Dispatch<any>) => {
         await deleteReviewById(reviewId);
         dispatch(deleteReview(reviewId));
+    };
+
+export const removeReviewByIdByModerator = (reviewId: string) => 
+    async (dispatch: Dispatch<any>) => {
+        await deleteReviewById(reviewId);
+        dispatch(deleteReviewByModerator(reviewId));
     };
 
 export const createReview = (

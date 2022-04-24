@@ -17,6 +17,7 @@ async function findReviewsByThingId(thingId) {
                 createTime: 1,
                 raiting: 1,
                 thingId: 1,
+                isRemoveModerator: 1,
                 creatorId: {
                     $toObjectId:"$creatorId"
                 }
@@ -130,6 +131,10 @@ async function removeReviewById(id) {
     updateRaiting(review.thingId);
 }
 
+async function removeReviewByIdByModerator(id) {
+    return Review.updateOne({ _id: id }, { isRemoveModerator: true }).exec();
+}
+
 module.exports = {
     findReviewsByThingId,
     createNewReview,
@@ -137,4 +142,5 @@ module.exports = {
     removeReviewById,
     findReviewById,
     findReviewByCreatorId,
+    removeReviewByIdByModerator,
 };

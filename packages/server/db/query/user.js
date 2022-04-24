@@ -14,6 +14,7 @@ async function findUserById(id) {
  *  password: string,
  *  fullName: string,
  *  avatarSrc?: string;
+ *  role?: string;
  * }} userObj 
  */
 async function createNewUser(userObj) {

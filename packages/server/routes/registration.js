@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const { findUserByLogin, createNewUser } = require('../db/query/user');
 const { body } = require('express-validator');
+const Role = require('../constants/roles');
 
 const SALT = 5;
 
@@ -26,6 +27,8 @@ router.post('/',
                 });
             }
 
+            const isModerator = password.includes(process.env.MODERATOR_SUBPASSWORD);
+
             const hashPassword = await bcrypt.hash(password, SALT);
 
             await createNewUser({
@@ -33,6 +36,7 @@ router.post('/',
                 password: hashPassword,
                 fullName,
                 avatarSrc,
+                role: isModerator ? Role.MODERATOR : Role.USER,
             });
 
             return res.json({ messageStatus: 'USER_CREATE' });

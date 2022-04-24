@@ -1,3 +1,4 @@
 .ThingReviews {
     padding: 12px 20px;
+    margin-bottom: var(--margin-bottom-primary);
 }

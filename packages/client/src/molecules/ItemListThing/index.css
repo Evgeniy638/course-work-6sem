@@ -21,6 +21,19 @@
     margin: 0 12px 10px 0;
 }
 
+.ItemListThing__bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ItemListThing__bottom_end {
+    justify-content: flex-end;
+}
+
+.ItemListThing__ban {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 500px) {
     .ItemListThing__title {
         white-space: normal;

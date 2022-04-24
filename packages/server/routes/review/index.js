@@ -5,9 +5,11 @@ const {
     findReviewById,
     updateReview,
     removeReviewById,
-    findReviewByCreatorId
+    findReviewByCreatorId,
+    removeReviewByIdByModerator
 } = require('../../db/query/review');
 const router = express.Router();
+const Role = require('../../constants/roles');
 
 /* GET reviews by thingId */
 router.get('/', async function (req, res, next) {
@@ -53,6 +55,11 @@ router.delete('/:reviewId', async function (req, res, next) {
     }
 
     if (review.creatorId !== req.user.id) {
+        if (req.user.role === Role.MODERATOR) {
+            await removeReviewByIdByModerator(req.params.reviewId)
+            return res.json({ message: 'ok' });
+        }
+
         return res.status(403).json({
             messageStatus: 'NOT_ALLOWED_THIS_USER',
         });

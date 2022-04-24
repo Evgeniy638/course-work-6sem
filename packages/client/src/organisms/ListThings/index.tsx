@@ -20,8 +20,8 @@ const ListThings: FC = () => {
     }, [dispatch, params]);
 
     return (
-        <div>
-            {things.map(({ id, title, description, avatarSrc, raiting }) => (
+        <div className="ListThings">
+            {things.map(({ id, title, description, avatarSrc, raiting, isRemoveModerator, creatorId }) => (
                 <ItemListThing
                     key={id}
                     id={id}
@@ -29,6 +29,8 @@ const ListThings: FC = () => {
                     description={description}
                     avatarSrc={avatarSrc}
                     raiting={raiting}
+                    creatorId={creatorId}
+                    isRemoveModerator={isRemoveModerator}
                     className={"ListThings__item"}
                 />
             ))}

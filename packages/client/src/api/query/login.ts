@@ -1,3 +1,4 @@
+import { UserRole } from './../../store/types/typeUser';
 import { getHeaders } from "../headers";
 
 export interface LoginArgs {
@@ -12,6 +13,7 @@ interface LoginResult {
         login: string;
         fullName: string;
         avatarSrc?: string;
+        role: UserRole;
     }
 }
 

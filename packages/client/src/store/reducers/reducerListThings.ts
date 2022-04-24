@@ -23,6 +23,21 @@ export const reducerListThings = (
                     currentThing: undefined,
                 };
 
+        case ListThingsTypeActions.REMOVE_BY_MODERATOR:
+            return {
+                ...state,
+                things: (state.things || []).map(thing => {
+                    if (thing.id === action.thingId) {
+                        return {
+                            ...thing,
+                            isRemoveModerator: true,
+                        }
+                    }
+
+                    return thing;
+                }),
+            }
+
         case ListThingsTypeActions.CHANGE_THINGS:
             return {
                 ...state,

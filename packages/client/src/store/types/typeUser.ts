@@ -1,8 +1,14 @@
+export enum UserRole {
+    MODERATOR = 'MODERATOR',
+    USER = 'USER',
+};
+
 export interface User {
     id: string;
     login: string;
     fullName: string;
     avatarSrc?: string;
+    role: UserRole;
 };
 
 export interface StateUser {

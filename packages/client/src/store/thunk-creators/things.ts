@@ -1,5 +1,5 @@
 import { postCreateThing, PostCreateThingArgs } from './../../api/query/thing';
-import { changeThings, changeCurrentThing, removeCurrentThing } from './../actions-creators/listThings';
+import { changeThings, changeCurrentThing, removeCurrentThing, removeThingByModerator } from './../actions-creators/listThings';
 import { fetchThings, fetchThingById, deleteThingById } from './../../api';
 import { Dispatch } from 'redux';
 import { Thing } from '../types/typeListThings';
@@ -20,6 +20,12 @@ export const removeThingById = (thingId: string) =>
     async (dispatch: Dispatch<any>) => {
         await deleteThingById(thingId);
         dispatch(removeCurrentThing());
+    };
+
+export const removeThingByIdByModerator = (thingId: string) => 
+    async (dispatch: Dispatch<any>) => {
+        await deleteThingById(thingId);
+        dispatch(removeThingByModerator(thingId));
     };
 
 export const createThing = (

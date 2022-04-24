@@ -4,10 +4,12 @@ import React, { FC, useCallback } from 'react';
 import dateFormat from 'dateformat';
 
 import DeleteIcon from '@mui/icons-material/Delete';
+import BlockIcon from '@mui/icons-material/Block';
 
 import style from './index.module.css';
 import { selectors, thunkCreators, useTypedSelector } from '../../store';
 import { useDispatch } from 'react-redux';
+import { UserRole } from '../../store/types/typeUser';
 
 interface ItemListReviewsProps {
     className?: string;
@@ -17,6 +19,7 @@ interface ItemListReviewsProps {
     creatorId: string;
     thingId: string;
     createTime: string;
+    isRemoveModerator: boolean;
     user: {
         login: string;
         avatarSrc?: string;
@@ -32,13 +35,18 @@ const ItemListReviews: FC<ItemListReviewsProps> = ({
     createTime,
     creatorId,
     user,
+    isRemoveModerator,
 }) => {
     const dispatch = useDispatch();
 
-    const { id: userId } = useTypedSelector(selectors.selectUser) || {};
+    const { id: userId, role } = useTypedSelector(selectors.selectUser) || {};
 
     const onDelete = useCallback(() => {
-        dispatch(thunkCreators.removeReviewById(reviewId))
+        dispatch(thunkCreators.removeReviewById(reviewId));
+    }, [dispatch, reviewId]);
+
+    const onBan = useCallback(() => {
+        dispatch(thunkCreators.removeReviewByIdByModerator(reviewId));
     }, [dispatch, reviewId]);
 
     return (
@@ -68,8 +76,15 @@ const ItemListReviews: FC<ItemListReviewsProps> = ({
                         </div>
                     </div>
                 )}
+                {userId !== creatorId && role === UserRole.MODERATOR && (
+                    <div className={style.deleteWrap}>
+                        <div className={style.delete} onClick={onBan}>
+                            <BlockIcon />
+                        </div>
+                    </div>
+                )}
             </div>
-            <p className={style.text}>{text}</p>
+            <p className={style.text}>{isRemoveModerator ? 'Забанено модератором' : text}</p>
             <Rating precision={0.5} value={raiting} readOnly />
         </div>
     );

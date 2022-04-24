@@ -30,7 +30,7 @@ router.post('/', async function (req, res, next) {
         }
 
         const token = jsonwebtoken.sign(
-            { id: userFromDb.id },
+            { id: userFromDb.id, role: userFromDb.role },
             secretKey,
         );
 
@@ -41,6 +41,7 @@ router.post('/', async function (req, res, next) {
                 login: userFromDb.login,
                 fullName: userFromDb.fullName,
                 avatarSrc: userFromDb.avatarSrc,
+                role: userFromDb.role,
             },
         });
     } catch (error) {

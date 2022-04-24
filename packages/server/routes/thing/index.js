@@ -4,9 +4,11 @@ const {
     findThingsByTitle,
     createNewThing,
     removeThingById,
-    updateThing
+    updateThing,
+    removeThingByIdByModerator
 } = require('../../db/query/thing');
 const router = express.Router();
+const Role = require('../../constants/roles');
 
 /* GET thing by id */
 router.get('/:thingId', async function (req, res, next) {
@@ -65,6 +67,11 @@ router.delete('/:thingId', async function (req, res, next) {
     }
 
     if (thing.creatorId !== req.user.id) {
+        if (req.user.role === Role.MODERATOR) {
+            await removeThingByIdByModerator(req.params.thingId)
+            return res.json({ message: 'ok' });
+        }
+
         return res.status(403).json({
             messageStatus: 'NOT_ALLOWED_THIS_USER',
         });

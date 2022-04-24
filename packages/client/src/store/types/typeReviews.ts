@@ -5,6 +5,7 @@ export interface Review {
     creatorId: string;
     thingId: string;
     createTime: string;
+    isRemoveModerator: boolean;
     user: {
         login: string;
         avatarSrc?: string;
@@ -21,6 +22,12 @@ export enum ListReviewsTypeActions {
     ADD_REVIEW = 'ADD_REVIEW',
     DELETE_REVIEW = 'DELETE_REVIEW',
     UPDATE_AVATAR_SRC = 'UPDATE_AVATAR_SRC',
+    REMOVE_BY_MODERATOR = 'REMOVE_BY_MODERATOR',
+}
+
+interface RemoveByModerator {
+    type: ListReviewsTypeActions.REMOVE_BY_MODERATOR;
+    reviewId: string;
 }
 
 interface UpdateAvatarSrc {
@@ -47,5 +54,6 @@ interface DeleteReview {
 export type ActionListReviews = ChangeReviews |
     AddReview |
     DeleteReview |
-    UpdateAvatarSrc;
+    UpdateAvatarSrc |
+    RemoveByModerator;
 
