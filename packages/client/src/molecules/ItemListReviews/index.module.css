@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.text {
+    margin-bottom: 6px;
+}
+
+.avatar {
+    margin-right: 12px;
+}

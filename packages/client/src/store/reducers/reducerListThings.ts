@@ -2,7 +2,7 @@ import { ActionListThings, ListThingsTypeActions, StateListThings } from './../t
 
 const initialState: StateListThings = {
     loading: false,
-    suggest: ['ааавтор', 'аааа'],
+    suggest: [],
     things: [],
 };
 

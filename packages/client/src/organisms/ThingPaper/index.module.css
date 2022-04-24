@@ -20,3 +20,8 @@
     width: 100%;
     margin: 0  0 12px 0;
 }
+
+.raitingText:global(.MuiTypography-root) {
+    font-size: 1.1rem;
+    margin-left: 6px;
+}
