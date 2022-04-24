@@ -20,6 +20,13 @@ export enum ListReviewsTypeActions {
     CHANGE_REVIEWS = 'CHANGE_REVIEWS',
     ADD_REVIEW = 'ADD_REVIEW',
     DELETE_REVIEW = 'DELETE_REVIEW',
+    UPDATE_AVATAR_SRC = 'UPDATE_AVATAR_SRC',
+}
+
+interface UpdateAvatarSrc {
+    type: ListReviewsTypeActions.UPDATE_AVATAR_SRC,
+    avatarSrc: string;
+    reviewId: string;
 }
 
 interface ChangeReviews {
@@ -39,5 +46,6 @@ interface DeleteReview {
 
 export type ActionListReviews = ChangeReviews |
     AddReview |
-    DeleteReview;
+    DeleteReview |
+    UpdateAvatarSrc;
 

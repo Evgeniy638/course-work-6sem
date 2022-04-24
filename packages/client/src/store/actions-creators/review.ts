@@ -21,3 +21,11 @@ export const deleteReview = (reviewId: string): ActionListReviews => {
         reviewId,
     };
 }
+
+export const updateReviewAvatarSrc = (reviewId: string, avatarSrc: string) => {
+    return {
+        type: ListReviewsTypeActions.UPDATE_AVATAR_SRC,
+        reviewId,
+        avatarSrc,
+    }
+}

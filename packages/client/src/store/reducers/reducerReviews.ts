@@ -33,6 +33,24 @@ export const reducerReviews = (
                 ...state,
                 reviews: state.reviews?.filter(({id}) => id !== action.reviewId),
             };
+
+        case ListReviewsTypeActions.UPDATE_AVATAR_SRC:
+            return {
+                ...state,
+                reviews: (state.reviews || []).map(review => {
+                    if (review.id === action.reviewId) {
+                        return {
+                            ...review,
+                            user: {
+                                ...review.user,
+                                avatarSrc: action.avatarSrc,
+                            }
+                        }
+                    }
+
+                    return review;
+                })
+            };
     
         default:
             return state;
