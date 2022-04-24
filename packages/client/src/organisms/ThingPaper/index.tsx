@@ -53,7 +53,12 @@ const ThingPaper: FC<ThingPaperProps> = ({ className }) => {
                     Рейтинг: {!raiting && "пока не определён"}
                 </Typography>
                 {raiting && (
-                    <Rating precision={0.5} value={raiting} readOnly />
+                    <>
+                        <Rating precision={0.5} value={raiting} readOnly />
+                        <Typography variant="overline" className={style.raitingText}>
+                            {raiting}
+                        </Typography>
+                    </>
                 )}
             </div>
 
