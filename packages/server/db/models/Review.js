@@ -6,6 +6,7 @@ const reviewSchema = new mongoose.Schema({
     creatorId: { type: String, required: true },
     thingId: { type: String, required: true },
     createTime: { type: Date, required: true, default: Date.now },
+    isRemoveModerator: { type: Boolean, required: true, default: false },
 }, {versionKey: false});
 
 reviewSchema.virtual('id').get(function(){

@@ -20,6 +20,13 @@ export const removeCurrentThing = (): ActionListThings => {
     };
 }
 
+export const removeThingByModerator = (thingId: string): ActionListThings => {
+    return {
+        type: ListThingsTypeActions.REMOVE_BY_MODERATOR,
+        thingId,
+    };
+}
+
 export const changeLoadingThings = (loading: boolean): ActionListThings => {
     return { type: ListThingsTypeActions.CHANGE_LOADING, loading };
 }

@@ -7,6 +7,7 @@ const thingSchema = new mongoose.Schema({
     raiting: { type: Number },
     creatorId: { type: String, required: true },
     createTime: { type: Date, required: true, default: Date.now },
+    isRemoveModerator: { type: Boolean, required: true, default: false },
 }, {versionKey: false});
 
 thingSchema.virtual('id').get(function(){

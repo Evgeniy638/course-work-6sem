@@ -50,10 +50,15 @@ async function removeThingById(id) {
     return Thing.deleteOne({ _id: id }).exec();
 }
 
+async function removeThingByIdByModerator(id) {
+    return Thing.updateOne({ _id: id }, { isRemoveModerator: true }).exec();
+}
+
 module.exports = {
     findThingById,
     findThingsByTitle,
     createNewThing,
     removeThingById,
     updateThing,
+    removeThingByIdByModerator,
 };

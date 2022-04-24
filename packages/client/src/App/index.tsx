@@ -12,9 +12,10 @@ import { useIsAuth } from '../common/useIsAuth';
 import { useAuth } from '../common/useAuth';
 import ThingPage from '../pages/_thing/@Id';
 import ThingCreatePage from '../pages/_thing/_create';
-
 function App() {
     const isAuth = useIsAuth();
+
+    console.log(isAuth);
 
     // получаем данные пользователя по токену из localStorage
     useAuth();
@@ -30,10 +31,7 @@ function App() {
                 <Route path={PAGE_LIST_THING} element={<ListThingPage />} />
                 <Route path={PAGE_THING} element={<ThingPage />} />
 
-                {!isAuth && (
-                    /* Если нет токена редиректим на страницу логина */
-                    <Route path='*' element={<Navigate to={isAuth ? PAGE_LIST_THING : PAGE_LOGIN } />} />
-                )}
+                <Route path='*' element={<Navigate to={isAuth ? PAGE_LIST_THING : PAGE_LOGIN } />} />
             </Routes>
         </div>
     );

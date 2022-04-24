@@ -22,6 +22,13 @@ export const deleteReview = (reviewId: string): ActionListReviews => {
     };
 }
 
+export const deleteReviewByModerator = (reviewId: string): ActionListReviews => {
+    return {
+        type: ListReviewsTypeActions.REMOVE_BY_MODERATOR,
+        reviewId,
+    };
+}
+
 export const updateReviewAvatarSrc = (reviewId: string, avatarSrc: string) => {
     return {
         type: ListReviewsTypeActions.UPDATE_AVATAR_SRC,

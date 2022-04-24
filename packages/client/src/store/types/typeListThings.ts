@@ -5,6 +5,7 @@ export interface Thing {
     avatarSrc?: string;
     raiting?: number;
     creatorId: string;
+    isRemoveModerator: boolean;
 }
 
 export interface StateListThings {
@@ -20,6 +21,12 @@ export enum ListThingsTypeActions {
     CHANGE_SUGGEST = "CHANGE_SUGGEST",
     CHANGE_CURRENT_THING = "CHANGE_CURRENT_THING",
     REMOVE_CURRENT_THING = "REMOVE_CURRENT_THING",
+    REMOVE_BY_MODERATOR = 'REMOVE_BY_MODERATOR',
+}
+
+interface RemoveByModerator {
+    type: ListThingsTypeActions.REMOVE_BY_MODERATOR;
+    thingId: string;
 }
 
 interface ChangeThings {
@@ -50,4 +57,5 @@ export type ActionListThings = ChangeThings |
     ChangeLoading |
     ChangeSuggest |
     ChangeCurrentThing |
-    RemoveCurrentThing;
+    RemoveCurrentThing |
+    RemoveByModerator;
