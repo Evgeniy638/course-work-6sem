@@ -12,8 +12,6 @@ export const reducerUser = (
         case UserTypeActions.LOGIN:
             setToken(action.token);
 
-            console.log('action.user', action.user);
-
             return {
                 ...state,
                 user: action.user,

@@ -15,8 +15,6 @@ import ThingCreatePage from '../pages/_thing/_create';
 function App() {
     const isAuth = useIsAuth();
 
-    console.log(isAuth);
-
     // получаем данные пользователя по токену из localStorage
     useAuth();
 

@@ -17,8 +17,6 @@ export const reducerReviews = (
         case ListReviewsTypeActions.ADD_REVIEW:
             const reviews = (state.reviews || [])
                 .filter(review => review.creatorId !== action.review.creatorId);
-            
-            console.log('reviews', reviews);
 
             return {
                 ...state,
