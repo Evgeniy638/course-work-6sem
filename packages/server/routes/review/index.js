@@ -4,7 +4,8 @@ const {
     createNewReview,
     findReviewById,
     updateReview,
-    removeReviewById
+    removeReviewById,
+    findReviewByCreatorId
 } = require('../../db/query/review');
 const router = express.Router();
 

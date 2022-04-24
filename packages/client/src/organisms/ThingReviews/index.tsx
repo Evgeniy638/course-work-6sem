@@ -6,6 +6,7 @@ import { selectors, thunkCreators, useTypedSelector } from '../../store';
 import ListReviews from '../../molecules/ListReviews';
 
 import style from './index.module.css';
+import ReviewForm from '../ReviewForm';
 
 interface ThingReviewsProps {
     className?: string;
@@ -27,6 +28,7 @@ const ThingReviews: FC<ThingReviewsProps> = ({ thingId, className }) => {
 
     return (
         <Paper className={classNames(style.ThingReviews, className)}>
+            <ReviewForm thingId={thingId} />
             <ListReviews reviews={reviews} />
         </Paper>
     );

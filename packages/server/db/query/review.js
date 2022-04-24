@@ -1,5 +1,6 @@
 const Review = require('../models/Review');
 const Thing = require('../models/Thing');
+const { findUserById } = require('./user');
 
 /**
  * @param {string} thingId
@@ -37,6 +38,10 @@ async function findReviewsByThingId(thingId) {
             },
         },
     ]).sort({ createTime: -1 }).exec();
+}
+
+async function findReviewByCreatorId(creatorId) {
+    return Review.findOne({ creatorId }).exec();
 }
 
 async function findReviewById(id) {
@@ -79,10 +84,22 @@ async function updateRaiting(thingId) {
  * }} reviewObj
  */
 async function createNewReview(reviewObj) {
+    await Review.deleteMany({ creatorId: reviewObj.creatorId }).exec();
+
     const review = new Review(reviewObj);
     const savedReview = await review.save();
+    const user = await findUserById(reviewObj.creatorId);
+
     updateRaiting(reviewObj.thingId);
-    return savedReview;
+
+    return {
+        ...JSON.parse(JSON.stringify(savedReview)),
+        user: {
+            login: user.login,
+            avatarSrc: user.avatarSrc,
+            fullName: user.fullName,
+        },
+    };
 }
 
 /**
@@ -119,4 +136,5 @@ module.exports = {
     updateReview,
     removeReviewById,
     findReviewById,
+    findReviewByCreatorId,
 };

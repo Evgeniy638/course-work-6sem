@@ -1,7 +1,6 @@
 import { changeReviews, deleteReview, addReview } from './../actions-creators/review';
 import { deleteReviewById, fetchReviews, PostCreateReviewArgs, postCreateReview } from './../../api/query/review';
 import { Dispatch } from "redux";
-import { Review } from '../types/typeReviews';
 
 export const getReviews = (thingId: string) => 
     async (dispatch: Dispatch<any>) => {
@@ -17,11 +16,16 @@ export const removeReviewById = (reviewId: string) =>
 
 export const createReview = (
     reviewArgs: PostCreateReviewArgs,
-    onSuccess: (newReview: Review) => void,
+    onFinish: () => void,
 ) => 
     async (dispatch: Dispatch<any>) => {
-        const newReview = await postCreateReview(reviewArgs);
+        try {
+            const newReview = await postCreateReview(reviewArgs);
 
-        dispatch(addReview(newReview));
-        onSuccess(newReview);
+            dispatch(addReview(newReview));
+        } catch (error) {
+            console.log(error);   
+        }
+
+        onFinish();
     };

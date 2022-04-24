@@ -13,7 +13,9 @@ reviewSchema.virtual('id').get(function(){
 });
 
 reviewSchema.set('toJSON', {
-    virtuals: true
+    virtuals: true,
+    versionKey:false,
+    transform: function (doc, ret) {   delete ret._id  }
 });
 
 const Review = mongoose.model("reviews", reviewSchema);

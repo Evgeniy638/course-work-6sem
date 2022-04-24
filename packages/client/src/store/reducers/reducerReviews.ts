@@ -15,13 +15,18 @@ export const reducerReviews = (
             };
         
         case ListReviewsTypeActions.ADD_REVIEW:
-                return {
-                    ...state,
-                    reviews: [
-                        action.review,
-                        ...(state.reviews ? state.reviews : []),
-                    ],
-                };
+            const reviews = (state.reviews || [])
+                .filter(review => review.creatorId !== action.review.creatorId);
+            
+            console.log('reviews', reviews);
+
+            return {
+                ...state,
+                reviews: [
+                    action.review,
+                    ...reviews,
+                ],
+            };
 
         case ListReviewsTypeActions.DELETE_REVIEW:
             return {

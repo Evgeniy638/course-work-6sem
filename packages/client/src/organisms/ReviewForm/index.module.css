@@ -1,0 +1,24 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--margin-bottom-primary);
+}
+
+.text:global(.MuiTextField-root) {
+    margin-bottom: var(--margin-bottom-third);
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.raiting {
+    display: flex;
+    flex-direction: column;
+}
+
+.raitingMain {
+    display: flex;
+}

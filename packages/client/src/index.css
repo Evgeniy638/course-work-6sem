@@ -22,9 +22,14 @@ code {
     color: inherit;
 }
 
+.error {
+    color: var(--color-error);
+}
+
 :root {
     --color-delimiter: rgb(213, 213, 213);
     --color-action-icon: white;
+    --color-error: #d32f2f;;
 
     --background-color-header: rgb(255, 255, 255);
     --background-color-app: rgb(246, 246, 246);
@@ -33,6 +38,9 @@ code {
 
     --margin-bottom-list-things-item: 12px;
     --margin-bottom-search: 20px;
+    --margin-bottom-primary: 20px;
+    --margin-bottom-secondary: 12px;
+    --margin-bottom-third: 6px;
 
     --z-index-header: 9;
 
