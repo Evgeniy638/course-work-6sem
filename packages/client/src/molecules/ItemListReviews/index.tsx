@@ -76,7 +76,7 @@ const ItemListReviews: FC<ItemListReviewsProps> = ({
                         </div>
                     </div>
                 )}
-                {userId !== creatorId && role === UserRole.MODERATOR && (
+                {userId !== creatorId && role === UserRole.MODERATOR && !isRemoveModerator && (
                     <div className={style.deleteWrap}>
                         <div className={style.delete} onClick={onBan}>
                             <BlockIcon />
