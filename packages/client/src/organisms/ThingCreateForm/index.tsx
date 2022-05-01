@@ -8,10 +8,10 @@ import { useNavigate } from 'react-router-dom';
 import { createLinkToThingPage } from '../../common/paths';
 import { useDispatch } from 'react-redux';
 import { thunkCreators } from '../../store';
-import UploadImage from '../../molecules/UploadImage';
 import { readFilesAsDataURL } from '../../common/readFilesAsDataURL';
 import { Thing } from '../../store/types/typeListThings';
 import { PostCreateThingArgs } from '../../api';
+import DragAndDropImage from '../../molecules/DragAndDropImage';
 
 const ThingCreateForm: FC = () => {
     const dispatch = useDispatch();
@@ -78,7 +78,7 @@ const ThingCreateForm: FC = () => {
                     minRows={3}
                     maxRows={Infinity}
                 />
-                <UploadImage
+                <DragAndDropImage 
                     name="files"
                     className={style.ElementForm}
                     onChange={handleChangeImages}

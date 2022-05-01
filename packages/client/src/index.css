@@ -36,6 +36,8 @@ code {
     --background-color-primary: white;
     --background-color-action-icon: #1976d2;
 
+    --border-color: rgb(47, 47, 47);
+
     --margin-bottom-list-things-item: 12px;
     --margin-bottom-search: 20px;
     --margin-bottom-primary: 20px;
