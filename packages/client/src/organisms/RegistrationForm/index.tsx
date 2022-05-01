@@ -9,9 +9,9 @@ import { PAGE_LIST_THING, PAGE_LOGIN } from '../../common/paths';
 import { useDispatch } from 'react-redux';
 import { thunkCreators } from '../../store';
 import { messageStatuses } from '../../common/messageStatuses';
-import UploadImage from '../../molecules/UploadImage';
 import { readFilesAsDataURL } from '../../common/readFilesAsDataURL';
 import { RegistrationArgs } from '../../api/query/registration';
+import DragAndDropImage from '../../molecules/DragAndDropImage';
 
 const RegistrationForm: FC = () => {
     const dispatch = useDispatch();
@@ -108,7 +108,7 @@ const RegistrationForm: FC = () => {
                 error={formik.touched.fullName && Boolean(formik.errors.fullName)}
                 helperText={formik.touched.fullName && formik.errors.fullName}
             />
-            <UploadImage
+            <DragAndDropImage
                 name="files"
                 className={style.ElementForm}
                 onChange={handleChangeImages}
