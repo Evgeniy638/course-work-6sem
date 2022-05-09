@@ -38,8 +38,11 @@ const ReviewForm: FC<ReviewFormProps> = ({ thingId }) => {
     });
 
     const onChangeRaiting = useCallback((event: React.SyntheticEvent<Element, Event>, value: number | null) => {
+        console.log('raiting = Number(value)', Number(value));
         formik.setFieldValue('raiting', Number(value));
     }, [formik]);
+
+    console.log(formik.values.raiting);
 
     return (
         <form className={style.form} onSubmit={formik.handleSubmit}>
@@ -63,10 +66,11 @@ const ReviewForm: FC<ReviewFormProps> = ({ thingId }) => {
                             Оценка:
                         </Typography>
                         <Rating
-                            precision={0.5}
                             value={formik.values.raiting}
                             name="raiting"
                             onChange={onChangeRaiting}
+                            onChangeActive={(...args) => {console.log('onChangeActive', args)}}
+                            onClick={(...args) => {console.log('onClick', args)}}
                         />
                     </div>
                     {formik.touched.raiting && Boolean(formik.errors.raiting) && (

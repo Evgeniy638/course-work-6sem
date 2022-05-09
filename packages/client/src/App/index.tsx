@@ -12,6 +12,7 @@ import { useIsAuth } from '../common/useIsAuth';
 import { useAuth } from '../common/useAuth';
 import ThingPage from '../pages/_thing/@Id';
 import ThingCreatePage from '../pages/_thing/_create';
+
 function App() {
     const isAuth = useIsAuth();
 

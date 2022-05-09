@@ -71,7 +71,7 @@ const ItemListThing: FC<ItemListThingProps> = ({
                     ItemListThing__bottom_end: !raiting
                 })}>
                     {raiting && (
-                        <Rating precision={0.5} value={raiting} readOnly />
+                        <Rating value={raiting} readOnly />
                     )}
                     {userId !== creatorId && role === UserRole.MODERATOR && (
                         <div className="ItemListThing__ban" onClick={onBan}>
